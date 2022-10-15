@@ -14,7 +14,10 @@ def get_col(modif):
     return tuple(col.astype(int))
 
 def make_color_plot(colors):
-    plt.bar(range(1,len(colors)+1), 10, color=colors)
+    x_axes_numbers = len(colors) + 1
+    if len(colors) > 100:
+        x_axes_numbers = 101        
+    plt.bar(range(1,x_axes_numbers), 10, color=colors)
     try:
         plt.savefig('generated_pastel_colors.png')
     except Exception as e:
